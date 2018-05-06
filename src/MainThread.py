@@ -225,7 +225,11 @@ class MainThread(QThread):
             else:
                 os.system("osascript -e 'tell application \"System Events\" to delete login item \"TSMApplication\"'")
         elif Config.IS_LINUX:
-            pass # Linux users will have to setup that themselves.
+            if self._settings.run_at_startup:
+                app_path=os.path.realpath(__file__)
+                os.system("ln -s " + app_path + " ~/.config/autostart/TradeSkillMaster")
+            else:
+                os.system("rm ~/.config/autostart/TradeSkillMaster")
         else:
             raise Exception("Unexpected platform")
 
