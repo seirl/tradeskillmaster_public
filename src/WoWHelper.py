@@ -118,7 +118,7 @@ class WoWHelper(QObject):
         elif Config.IS_MAC:
             search_paths = [os.path.join("~/Applications", "World of Warcraft")]
         elif Config.IS_LINUX:
-            search_paths = [os.path.expanduser("~/.wine/drive_c/World of Warcraft")]
+            search_paths = [os.path.expanduser("~/.wine/drive_c/Program Files (x86)/World of Warcraft")]
         else:
             raise Exception("Unexpected platform")
         for path in search_paths:
