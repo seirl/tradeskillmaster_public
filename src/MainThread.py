@@ -229,7 +229,8 @@ class MainThread(QThread):
                 app_path=os.path.realpath(__file__)
                 os.system("ln -s " + app_path + " ~/.config/autostart/TradeSkillMaster")
             else:
-                os.system("rm ~/.config/autostart/TradeSkillMaster")
+                if os.path.isfile(os.path.expanduser("~/.config/autostart/TradeSkillMaster"):
+                    os.system("rm ~/.config/autostart/TradeSkillMaster")
         else:
             raise Exception("Unexpected platform")
 
